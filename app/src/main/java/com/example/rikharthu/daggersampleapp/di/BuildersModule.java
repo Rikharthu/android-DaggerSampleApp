@@ -1,6 +1,7 @@
 package com.example.rikharthu.daggersampleapp.di;
 
 import com.example.rikharthu.daggersampleapp.LobbyActivity;
+import com.example.rikharthu.daggersampleapp.LobbyFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -18,6 +19,11 @@ public abstract class BuildersModule {
     //    @ContributesAndroidInjector
     @ContributesAndroidInjector(modules = LobbyActivityModule.class)
     abstract LobbyActivity bindLobbyActivity();
+
+    @ContributesAndroidInjector(modules = LobbyFragmentModule.class)
+    // or gain access to lobby activity dependencies from fragment via
+    // @ContributesAndroidInjector(modules = {LobbyFragmentModule.class, LobbyActivityModule.class})
+    abstract LobbyFragment bindLobbyFragment();
 
     // Add bindings for other sub-components here
 }
